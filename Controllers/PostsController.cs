@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CatBoardApi.Models;
 
+using System.Globalization;
+
 namespace CatBoardApi.Controllers
 {
   [Route("api/Boards/{boardId}/[controller]")]
@@ -33,6 +35,7 @@ namespace CatBoardApi.Controllers
     public ActionResult<Post> Get(int boardId, int id)
     {
       Post thisPost = _db.Posts.FirstOrDefault(post => post.PostId == id);
+      thisPost.Comments = _db.Comments.Where(comments => comments.PostId == id).ToList();
       return thisPost;
     }
 
@@ -41,6 +44,8 @@ namespace CatBoardApi.Controllers
     public void Post(int boardId, [FromBody] Post post)
     {
       post.BoardId = boardId;
+      post.DateCreated = DateTime.Now;
+      post.EditDate = DateTime.Now;
       _db.Posts.Add(post);
       _db.SaveChanges();
     }
@@ -49,6 +54,7 @@ namespace CatBoardApi.Controllers
     [HttpPut("{id}")]
     public void Put( int id, [FromBody] Post post)
     {
+      post.EditDate = DateTime.Now;
       post.PostId = id; //double checkoing id of the form body is the correct id
       _db.Entry(post).State = EntityState.Modified;
       _db.SaveChanges();

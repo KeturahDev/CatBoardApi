@@ -29,15 +29,18 @@ namespace CatBoardApi.Controllers
 
         // GET api/boards/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public ActionResult<Board> Get(int id)
         {
-            return "value";
+            Board thisBoard = _db.Boards.FirstOrDefault(board => board.BoardId == id);
+            return thisBoard;
         }
 
         // POST api/boards
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Board board)
         {
+            _db.Boards.Add(board);
+            _db.SaveChanges();
         }
 
         // PUT api/values/5

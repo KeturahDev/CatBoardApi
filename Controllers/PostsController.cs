@@ -49,6 +49,7 @@ namespace CatBoardApi.Controllers
     [HttpPut("{id}")]
     public void Put( int id, [FromBody] Post post)
     {
+      post.PostId = id; //double checkoing id of the form body is the correct id
       _db.Entry(post).State = EntityState.Modified;
       _db.SaveChanges();
     }

@@ -43,16 +43,22 @@ namespace CatBoardApi.Controllers
             _db.SaveChanges();
         }
 
-        // PUT api/values/5
+        // PUT api/boards/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] Board board)
         {
+            board.BoardId = id;
+            _db.Entry(board).State = EntityState.Modified;
+            _db.SaveChanges();
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            Board thisBoard = _db.Boards.FirstOrDefault(board => board.BoardId == id);
+            _db.Boards.Remove(thisBoard);
+            _db.SaveChanges();
         }
     }
 }

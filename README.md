@@ -1,5 +1,5 @@
 # CatBoardApi
-### By **Keturah Howard, Jamison Cozart, Dusty Mccord**  March 30th 2020
+### By **Keturah Howard, Jamison Cozart, Dusty McCord**  March 30th 2020
 
 ASP.NET core console application to demonsteate how to make an API call.
 
@@ -66,4 +66,4 @@ Currently there's no known bugs, however, if there are any issues running this w
 
 Licensed under the MIT license.
 
-&copy; 2020 Keturah Howard, Jamison Cozart, Dusty Mccord.
+&copy; 2020 Keturah Howard, Jamison Cozart, Dusty McCord.

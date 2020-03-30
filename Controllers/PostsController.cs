@@ -52,10 +52,11 @@ namespace CatBoardApi.Controllers
 
     // PUT api/Posts/5
     [HttpPut("{id}")]
-    public void Put( int id, [FromBody] Post post)
+    public void Put( int id, int boardId, [FromBody] Post post)
     {
       post.EditDate = DateTime.Now;
       post.PostId = id; //double checkoing id of the form body is the correct id
+      post.BoardId = boardId;
       _db.Entry(post).State = EntityState.Modified;
       _db.SaveChanges();
     }

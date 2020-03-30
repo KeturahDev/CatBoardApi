@@ -25,7 +25,7 @@ Download the .zip file and extract all files into directory of your choice OR cl
 
 1. Clone the repository:
     ```
-    git clone https://github.com/KeturahDev/Cat-Board-API.git
+    git clone https://github.com/KeturahDev/CatBoardApi.git
     ```
 
 2. Restore all dependencies:
@@ -56,7 +56,11 @@ Download the .zip file and extract all files into directory of your choice OR cl
 Currently there's no known bugs.
 
 ## Contact Info 
-Currently there's no known bugs, however, if there are any issues running this website I would love feedback! Please email me at keturah.dev@gmail.com.
+Currently there's no known bugs, however, if there are any issues running this website I would love feedback! Please email us at 
+* keturah.dev@gmail.com.
+* jamisoncozart@gmail.com
+* 
+
 
 ## License
 

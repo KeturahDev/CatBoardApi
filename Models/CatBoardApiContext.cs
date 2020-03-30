@@ -18,6 +18,13 @@ namespace CatBoardApi.Models
                 new Board { BoardId = 3, Name = "Cat Fight", Description = "Fighting cats"},
                 new Board { BoardId = 4, Name = "Cats be cattin", Description = "Cats living like tomorrow doesn't matter."}
             );
+        builder.Entity<Post>()
+            .HasData(
+                new Post { PostId = 1, Title = "OMG", Body = "Cats standing on their hind legs", AuthorId = 1, BoardId = 1},
+                new Post { PostId = 2, Title = "No no no", Body = "Cats", AuthorId = 1, BoardId = 2},
+                new Post { PostId = 3, Title = "What!", Body = "Fighting cats", AuthorId = 1, BoardId = 1},
+                new Post { PostId = 4, Title = "That cat can sit.", Body = "Cats living like tomorrow doesn't matter.", AuthorId = 1, BoardId = 2}
+            );
         }
 
         public DbSet<Board> Boards { get; set; }

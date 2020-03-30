@@ -7,6 +7,7 @@ namespace CatBoardApi.Models
     {
       public int CommentId { get; set; }
       [Required]
+      [StringLength(255)]
       public string Body { get; set; }
       public int AuthorId { get; set; }
       public int PostId { get; set; }

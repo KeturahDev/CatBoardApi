@@ -43,6 +43,8 @@ namespace CatBoardApi.Controllers
     [HttpPost]
     public void Post(int postId,[FromBody] Comment comment)
     {
+        comment.DateCreated = DateTime.Now;
+        comment.EditDate = DateTime.Now;
         comment.PostId = postId;
         _db.Comments.Add(comment);
         _db.SaveChanges();
@@ -50,9 +52,11 @@ namespace CatBoardApi.Controllers
 
     // PUT api/Comments/5
     [HttpPut("{id}")]
-    public void Put(int id, [FromBody] Comment comment)
+    public void Put(int id, int postId, [FromBody] Comment comment)
     {
+      comment.EditDate = DateTime.Now;
       comment.CommentId = id;
+      comment.PostId = postId;
       _db.Entry(comment).State = EntityState.Modified;
       _db.SaveChanges();
     }

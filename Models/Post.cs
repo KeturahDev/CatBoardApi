@@ -1,13 +1,18 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace CatBoardApi.Models
 {
   public class Post
   {
     public int PostId { get; set; }
+    [Required]
+    [StringLength(20)]
     public string Title { get; set; }
+    [Required]
+    [StringLength(255)]
     public string Body { get; set; }
     public int AuthorId { get; set; }
     public int BoardId { get; set; }

@@ -3,28 +3,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using CatBoardApi.Models;
 
 namespace CatBoardApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class BoardsController : ControllerBase
     {
-        // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+
+        private CatBoardApiContext _db;
+
+        public BoardsController(CatBoardApiContext db)
         {
-            return new string[] { "value1", "value2" };
+            _db = db;
         }
 
-        // GET api/values/5
+        // GET api/boards
+        [HttpGet]
+        public ActionResult<IEnumerable<Board>> Get()
+        {
+            return _db.Boards.ToList();
+        }
+
+        // GET api/boards/5
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
             return "value";
         }
 
-        // POST api/values
+        // POST api/boards
         [HttpPost]
         public void Post([FromBody] string value)
         {

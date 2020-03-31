@@ -41,8 +41,6 @@ namespace CatBoardApi.Controllers
       }
 
       return BadRequest("Invalid Request");
-
     }
   }
-
 }

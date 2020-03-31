@@ -26,7 +26,7 @@ namespace CatBoardApi.Models
   public class TokenRequest
   {
     [Required]
-    [JsonProperty("username")]
+    [JsonProperty("name")]
     public string Username { get; set; }
 
 

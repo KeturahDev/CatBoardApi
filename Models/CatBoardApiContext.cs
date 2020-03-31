@@ -1,8 +1,11 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+
 
 namespace CatBoardApi.Models
 {
     public class CatBoardApiContext : DbContext
+    // public class CatBoardApiContext : IdentityDbContext<User>
     {
         public CatBoardApiContext(DbContextOptions<CatBoardApiContext> options)
             : base(options)

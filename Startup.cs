@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using System.Text;
+using Microsoft.AspNetCore.Identity;
 
 namespace CatBoardApi
 {
@@ -31,16 +32,28 @@ namespace CatBoardApi
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-      services.AddDbContext<CatBoardApiContext>(opt =>
+      services.AddEntityFrameworkMySql().AddDbContext<CatBoardApiContext>(opt =>
           opt.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
+
+      services.AddIdentity<User, IdentityRole>()
+          .AddEntityFrameworkStores<CatBoardApiContext>()
+          .AddDefaultTokenProviders();
+
+      services.Configure<IdentityOptions>(options =>
+        {
+          options.Password.RequireDigit = false;
+          options.Password.RequiredLength = 0;
+          options.Password.RequireLowercase = false;
+          options.Password.RequireNonAlphanumeric = false;
+          options.Password.RequireUppercase = false;
+          options.Password.RequiredUniqueChars = 0;
+        });
 
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
       services.Configure<TokenManagement>(Configuration.GetSection("tokenManagement"));
       var token = Configuration.GetSection("tokenManagement").Get<TokenManagement>();
       var secret = Encoding.ASCII.GetBytes(token.Secret);
-
-    //   services.Configure<TokenManagement>(Configuration.GetSection("tokenManagement"));
 
       services.AddAuthentication(x =>
       {

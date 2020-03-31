@@ -63,6 +63,7 @@ namespace CatBoardApi
 
         services.AddScoped<IAuthenticateService, TokenAuthenticationService>();
 
+        services.AddScoped<IUserManagementService, UserManagementService>();
 
     }
 

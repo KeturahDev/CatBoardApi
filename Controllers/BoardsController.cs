@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CatBoardApi.Models;
-
+using System.Globalization;
+using Microsoft.AspNetCore.Authorization;
 namespace CatBoardApi.Controllers
 {
+  [Authorize]
   [Route("api/[controller]")]
   [ApiController]
   public class BoardsController : ControllerBase

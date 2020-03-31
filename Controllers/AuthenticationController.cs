@@ -34,6 +34,7 @@ namespace CatBoardApi.Controllers
       }
 
       string token;
+      
       if (_authService.IsAuthenticated(request, out token))
       {
         return Ok(token);

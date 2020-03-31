@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using CatBoardApi.Models;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Linq;
 
 
 namespace CatBoardApi.Models
@@ -10,12 +11,24 @@ namespace CatBoardApi.Models
   public class UserManagementService : IUserManagementService
   {
 
-    // private readonly SignInManager<User> _signInManager;
-
+    private CatBoardApiContext _db;
+    
+    public UserManagementService(CatBoardApiContext db)
+    {
+      _db = db;
+    }
 
     public bool IsValidUser(string userName, string password)
     {
-      return true;
+      User thisUser = _db.Users.FirstOrDefault(user => user.Name == userName);
+      if(thisUser.Password == password)
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
     }
   }
 }

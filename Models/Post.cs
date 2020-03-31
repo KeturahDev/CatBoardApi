@@ -9,7 +9,7 @@ namespace CatBoardApi.Models
   {
     public int PostId { get; set; }
     [Required]
-    [StringLength(20)]
+    [StringLength(100)]
     public string Title { get; set; }
     [Required]
     [StringLength(255)]

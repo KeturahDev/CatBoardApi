@@ -4,6 +4,12 @@ namespace CatBoardApi.Models
 {
     public class CatBoardApiContext : DbContext
     {
+
+        public DbSet<Board> Boards { get; set; }
+        public DbSet<Post> Posts { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<User> Users { get; set; }
+
         public CatBoardApiContext(DbContextOptions<CatBoardApiContext> options)
             : base(options)
         {
@@ -25,11 +31,13 @@ namespace CatBoardApi.Models
                 new Post { PostId = 3, Title = "What!", Body = "Fighting cats", AuthorId = 1, BoardId = 1},
                 new Post { PostId = 4, Title = "That cat can sit.", Body = "Cats living like tomorrow doesn't matter.", AuthorId = 1, BoardId = 2}
             );
+        builder.Entity<User>()
+            .HasData(
+                new User { UserId = 1, Name = "John", Email = "123@gmail", Password = "1"},
+                new User { UserId = 2, Name = "Markus", Email = "Cats@cats.com", Password = "1"},
+                new User { UserId = 3, Name = "Lilly", Email = "ilovecats@gmail.com", Password = "1"},
+                new User { UserId = 4, Name = "Jordan", Email = "dogseatcatpoo@yahoo.com", Password = "1"}
+            );
         }
-
-        public DbSet<Board> Boards { get; set; }
-        public DbSet<Post> Posts { get; set; }
-        public DbSet<Comment> Comments { get; set; }
-        public DbSet<User> Users { get; set; }
     }
 }

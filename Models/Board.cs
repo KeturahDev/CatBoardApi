@@ -8,7 +8,7 @@ namespace CatBoardApi.Models
   {
     public int BoardId { get; set; }
     [Required]
-    [StringLength(20)]
+    [StringLength(50)]
     public string Name { get; set; }
     [Required]
     [StringLength(255)]

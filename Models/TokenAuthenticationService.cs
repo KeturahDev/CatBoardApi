@@ -30,7 +30,7 @@ namespace CatBoardApi.Models
     public bool IsAuthenticated(TokenRequest request, out string token)
     {
       token = string.Empty;
-      bool check = _userManagementService.IsValidUser(request.Username, request.Password).Result;
+      bool check = _userManagementService.IsValidUser(request.Username, request.Password);
       if (check == false) return false;
       
       var claim = new[]

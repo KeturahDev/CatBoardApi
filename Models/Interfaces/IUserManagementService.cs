@@ -1,9 +1,10 @@
-using System.Threading.Tasks;
+// using System.Threading.Tasks;
 
 namespace CatBoardApi.Models
 {
-    public interface IUserManagementService
-    {
-      Task<bool> IsValidUser(string username, string password);
-    }
+  public interface IUserManagementService
+  {
+    // Task<bool> IsValidUser(string userName, string password);
+    bool IsValidUser(string username, string password);
+  }
 }

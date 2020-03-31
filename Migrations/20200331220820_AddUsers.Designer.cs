@@ -3,14 +3,16 @@ using System;
 using CatBoardApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CatBoardApi.Migrations
 {
     [DbContext(typeof(CatBoardApiContext))]
-    partial class CatBoardApiContextModelSnapshot : ModelSnapshot
+    [Migration("20200331220820_AddUsers")]
+    partial class AddUsers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -177,36 +179,6 @@ namespace CatBoardApi.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("Users");
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = 1,
-                            Email = "123@gmail",
-                            Name = "John",
-                            Password = "1"
-                        },
-                        new
-                        {
-                            UserId = 2,
-                            Email = "Cats@cats.com",
-                            Name = "Markus",
-                            Password = "1"
-                        },
-                        new
-                        {
-                            UserId = 3,
-                            Email = "ilovecats@gmail.com",
-                            Name = "Lilly",
-                            Password = "1"
-                        },
-                        new
-                        {
-                            UserId = 4,
-                            Email = "dogseatcatpoo@yahoo.com",
-                            Name = "Jordan",
-                            Password = "1"
-                        });
                 });
 
             modelBuilder.Entity("CatBoardApi.Models.Comment", b =>

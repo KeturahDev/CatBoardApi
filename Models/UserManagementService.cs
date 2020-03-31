@@ -18,9 +18,9 @@ namespace CatBoardApi.Models
       _db = db;
     }
 
-    public bool IsValidUser(string userName, string password)
+    public bool IsValidUser(string name, string password)
     {
-      User thisUser = _db.Users.FirstOrDefault(user => user.Name == userName);
+      User thisUser = _db.Users.FirstOrDefault(user => user.Name == name);
       if(thisUser.Password == password)
       {
         return true;

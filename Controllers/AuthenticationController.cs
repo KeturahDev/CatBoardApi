@@ -18,10 +18,12 @@ namespace CatBoardApi.Controllers
   {
 
     private readonly IAuthenticateService _authService;
+    private readonly CatBoardApiContext _db;
 
-    public AuthenticationController(IAuthenticateService authService)
+    public AuthenticationController(IAuthenticateService authService, CatBoardApiContext db)
     {
       _authService = authService;
+      _db = db;
     }
 
     [AllowAnonymous]
@@ -41,6 +43,14 @@ namespace CatBoardApi.Controllers
       }
 
       return BadRequest("Invalid Request");
+    }
+
+    [HttpPost("signup")]
+    public ActionResult SignUp([FromBody] User user)
+    {
+      _db.Add(user);
+      _db.SaveChanges();
+      return Ok("User created");
     }
   }
 }

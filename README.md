@@ -1,16 +1,20 @@
 # CatBoardApi
 ### By **Keturah Howard, Jamison Cozart, Dusty McCord**  March 30th 2020
 
-ASP.NET core console application to demonsteate how to make an API call.
+ASP.NET core console application to demonsteate how to make an API, using the example of a reddit only based around cats: CatBoard.
+
+***[Application that holds both the API and Interface for the API](https://github.com/KeturahDev/CatBoard)***
 
 ## Specifications user stories:
 
-* As a user, I want to be able to GET all messages related to a specific group.
-* As a user, I want to be able to POST messages to a specific group.
-* As a user, I want to be able to see a list of all groups.
-* As a user, I want to input date parameters and retrieve only messages posted during that timeframe.
-* As a user, I want to be able to PUT and DELETE messages, but only if I wrote them. (Start by requiring a user_name param to match the user_name of the author on the message. You can always try authentication later.)
-
+* As a user, I want to be able to GET all Boards so that I can choose which content to consume.
+* As a user, I want to be able to GET all Posts relating to a Board so that I can enjoy the relevent content.
+* As a user, I want to be able to POST Boards to create a place to post relative Posts.
+* As a user, I want to be able to POST posts for myself and others to enjoy.
+* As a user, I want to be able to CREATE Boards, so that others and myself can contribute new collections of posts. 
+* As a user, I want to be able to CREATE Posts.
+* As a user, I want to be able to DELETE Boards to declutter.
+* As a user, I want to be able to DELETE Posts to declutter.
 
 ## Getting Started
 
@@ -41,8 +45,6 @@ Download the .zip file and extract all files into directory of your choice OR cl
     dotnet run
     ```
 
-
-
 ## Technologies Used
 
 * C#
@@ -50,6 +52,10 @@ Download the .zip file and extract all files into directory of your choice OR cl
 * RestSharp API
 * Newtonsoft.Json
 * Git
+
+## External Assets
+* MySqlWorkBench
+* Postman
 
 
 ## Known Bugs
@@ -59,7 +65,6 @@ Currently there's no known bugs.
 Currently there's no known bugs, however, if there are any issues running this website I would love feedback! Please email us at 
 * keturah.dev@gmail.com.
 * jamisoncozart@gmail.com
-* 
 
 
 ## License

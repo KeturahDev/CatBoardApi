@@ -16,6 +16,37 @@ ASP.NET core console application to demonsteate how to make an API, using the ex
 * As a user, I want to be able to DELETE Boards to declutter.
 * As a user, I want to be able to DELETE Posts to declutter.
 
+### API Endpoints
+
+BOARDS
+```
+GET /api/boards
+POST /api/boards
+GET /api/boards/{boardId}
+PUT /api/boards/{boardId}
+DELETE /api/boards/{boardId}
+```
+
+POSTS
+```
+GET /api/boards/{boardId}/Posts
+POST /api/boards/{boardId}/Posts
+GET /api​/boards​/{boardId}​/Posts​/{id}
+PUT /api​/boards​/{boardId}​/Posts​/{id}
+DELETE /api/boards/{boardId}/Posts/{id}
+PATCH /api​/boards​/{boardId}​/Posts​/{id}​/upvote
+PATCH /api/boards/{boardId}/Posts/{id}/downvote
+```
+
+COMMENTS (*- Interface: work in progress -*)
+```
+GET /api/boards/{boardId}/posts/{postId}/Comments
+POST /api/boards/{boardId}/posts/{postId}/Comments
+GET /api/boards/{boardId}/posts/{postId}/Comments/{id}
+PUT /api/boards/{boardId}/posts/{postId}/Comments/{id}
+DELETE /api/boards/{boardId}/posts/{postId}/Comments/{id}
+```
+
 ## Getting Started
 
 Download the .zip file and extract all files into directory of your choice OR clone the repository to a directory. Open project directory in preferred text editor.
